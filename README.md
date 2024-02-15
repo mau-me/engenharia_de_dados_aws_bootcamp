@@ -9,7 +9,7 @@
 
 ## About <a name = "about"></a>
 
-Repositório criado para hospedar os projetos do bootcamp de engenharia de dados com aws da How.
+Este repositório contém todas as atividades realizadas durante o bootcamp de engenharia de dados com aws da How.
 
 ## Getting Started <a name = "getting_started"></a>
 
