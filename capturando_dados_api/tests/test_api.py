@@ -1,6 +1,6 @@
 import datetime
 import pytest
-from ingestao import TickersApi, TradesApi
+from mercado_bitcoin.ingestor import TickersApi, TradesApi
 
 
 class TestTickersApi:

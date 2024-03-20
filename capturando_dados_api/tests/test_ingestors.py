@@ -2,17 +2,17 @@ import datetime
 from unittest.mock import mock_open, patch
 import pytest
 
-from ingestao import DataIngestor, DataWriter
+from mercado_bitcoin.ingestor import DataIngestor, DataWriter
 
 
 @pytest.fixture
-@patch('ingestao.DataIngestor.__abstractmethods__', set())
+@patch('mercado_bitcoin.ingestor.DataIngestor.__abstractmethods__', set())
 def data_ingestor_fixture():
     return DataIngestor(writer=DataWriter, coins=[
         'TESTE01', 'TESTE02'], default_start_date=datetime.datetime(2024, 3, 17))
 
 
-@patch('ingestao.DataIngestor.__abstractmethods__', set())
+@patch('mercado_bitcoin.ingestor.DataIngestor.__abstractmethods__', set())
 class TestIngerstors:
 
     def test_checkpoint_filename(self, data_ingestor_fixture):
@@ -34,7 +34,7 @@ class TestIngerstors:
         expected = datetime.datetime(2024, 3, 17)
         assert actual == expected
 
-    @patch('ingestao.DataIngestor._write_checkpoint', return_value=None)
+    @patch('mercado_bitcoin.ingestor.DataIngestor._write_checkpoint', return_value=None)
     def test_update_checkpoint_update(self, mock, data_ingestor_fixture):
         data_ingestor = data_ingestor_fixture
         data_ingestor._update_checkpoint(value=datetime.datetime(2024, 3, 17))
@@ -44,7 +44,7 @@ class TestIngerstors:
         expected = datetime.datetime(2024, 3, 17)
         assert actual == expected
 
-    @patch('ingestao.DataIngestor._write_checkpoint', return_value=None)
+    @patch('mercado_bitcoin.ingestor.DataIngestor._write_checkpoint', return_value=None)
     def test_update_checkpoint_written(self, mock, data_ingestor_fixture):
         data_ingestor = data_ingestor_fixture
         data_ingestor._update_checkpoint(value=datetime.datetime(2024, 3, 17))
